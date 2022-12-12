@@ -17,17 +17,22 @@ function* incrementarID() {
     let id = 0;
     while(true) {
         yield id++
-        if(id % 2 == 0){
-            return id;
-        }
+        
     }
 }
 
 const increment = incrementarID();
 
-console.log(increment.next().value);
-console.log(increment.next().value);
-console.log(increment.next().value);
-console.log(increment.next().value);
-console.log(increment.next().value);
-console.log(increment.next().value);
+let lista = []
+
+let i = 0
+while (i < 10){
+    i++;
+    lista.push(increment.next().value)
+}
+
+console.log(lista);
+
+const result = lista.filter(number => number % 2 == 0);
+
+console.log(result);
